@@ -1,0 +1,29 @@
+#配置模型训练的相关参数
+
+dataset_path: './datasets/'                #数据集路径
+anchors_path: './datasets/WZRY/yolo_anchors.txt'         #自定义锚框路径
+classes_path: 'cfg/wzry.txt'              #数据集分类文件路径
+
+anchors_flag: False               #是否自定义锚框，默认不使用
+
+Tensorboard: False            #   是否使用Tensorboard
+
+Cuda: True          #   是否使用Cuda，没有GPU可以设置成False
+
+#------------------------------------------------------#
+#   是否对损失进行归一化，用于改变loss的大小
+#   用于决定计算最终loss是除上batch_size还是除上正样本数量
+#------------------------------------------------------#
+normalize: False
+
+input_shape: 416,416           # 输入的shape大小
+
+#------------------------------------------------------#
+#   mosaic 马赛克数据增强 True or False 
+#   实际测试时mosaic数据增强并不稳定，所以默认为False
+#   Cosine_scheduler 余弦退火学习率 True or False
+#   label_smoothing 标签平滑 0.01以下一般 如0.01、0.005
+#------------------------------------------------------#
+mosaic: False
+Cosine_lr: False
+smoooth_label: 0.01
